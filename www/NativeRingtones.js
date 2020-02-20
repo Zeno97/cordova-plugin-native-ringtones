@@ -15,6 +15,10 @@ RingtoneManager.prototype.getRingtone = function (successCallback, errorCallback
     exec(successCallback, errorCallback, "NativeRingtones", "get", [ringtoneType]);
 };
 
+RingtoneManager.prototype.getDefaultRingtone = function (successCallback, errorCallback) {
+    exec(successCallback, errorCallback, "NativeRingtones", "getDefaultRingtone");
+};
+
 RingtoneManager.prototype.playRingtone = function (ringtoneUri, successCallback, errorCallback) {
     if (!successCallback) {
         successCallback = function (success) { };
@@ -39,28 +43,24 @@ RingtoneManager.prototype.playRingtone = function (ringtoneUri, successCallback,
     }
 };
 
-RingtoneManager.prototype.stopRingtone = function (ringtoneUri, successCallback, errorCallback) {
+RingtoneManager.prototype.stopRingtone = function (successCallback, errorCallback) {
     if (!successCallback) {
         successCallback = function (success) { };
     }
     if (!errorCallback) {
         errorCallback = function (error) { };
     }
-    if (ringtoneUri.indexOf("content") >= 0 || ringtoneUri.indexOf("System") >= 0) {
-        exec(successCallback, errorCallback, "NativeRingtones", "stop", [ringtoneUri]);
+    exec(successCallback, errorCallback, "NativeRingtones", "stop");
+};
+
+RingtoneManager.prototype.isRingtonePlaying = function (successCallback, errorCallback) {
+    if (!successCallback) {
+        successCallback = function (success) { };
     }
-    else {
-        var contentPath = window.location.pathname.substr(window.location.pathname, window.location.pathname.length - 10);
-        var path;
-        if (device.platform === "Android") {
-            path = "file://" + contentPath + ringtoneUri.substr(7, ringtoneUri.length - 1);
-        } else {
-            path = contentPath + ringtoneUri.substr(7, ringtoneUri.length - 1);
-        }
-        new Media(path, function (success) {
-            console.log(success);
-        }).stop();
+    if (!errorCallback) {
+        errorCallback = function (error) { };
     }
+    exec(successCallback, errorCallback, "NativeRingtones", "isRingtonePlaying", []);
 };
 
 module.exports = new RingtoneManager();
