@@ -1,35 +1,7 @@
 {
-  "_from": "cordova-plugin-native-ringtones",
-  "_id": "cordova-plugin-native-ringtones@1.0.0",
-  "_inBundle": false,
-  "_integrity": "sha1-NTySe/Guhy89zW2uI1sskTV7p4E=",
-  "_location": "/cordova-plugin-native-ringtones",
-  "_phantomChildren": {},
-  "_requested": {
-    "type": "tag",
-    "registry": true,
-    "raw": "cordova-plugin-native-ringtones",
-    "name": "cordova-plugin-native-ringtones",
-    "escapedName": "cordova-plugin-native-ringtones",
-    "rawSpec": "",
-    "saveSpec": null,
-    "fetchSpec": "latest"
-  },
-  "_requiredBy": [
-    "#USER",
-    "/"
-  ],
-  "_resolved": "https://registry.npmjs.org/cordova-plugin-native-ringtones/-/cordova-plugin-native-ringtones-0.2.5.tgz",
-  "_shasum": "353c927bf1ae872f3dcd6dae235b2c91357ba781",
-  "_spec": "cordova-plugin-native-ringtones",
-  "_where": "C:\\Users\\Joconnect\\Desktop\\JoConnectAlpha",
-  "author": {
-    "name": "Tong Zhang"
-  },
-  "bugs": {
-    "url": "https://github.com/TongZhangzt/cordova-plugin-native-ringtones/issues"
-  },
-  "bundleDependencies": false,
+  "name": "cordova-plugin-native-ringtones",
+  "version": "0.2.5",
+  "description": "Get and play the native ringtone list on Android/IOS devices.",
   "cordova": {
     "id": "cordova-plugin-native-ringtones",
     "platforms": [
@@ -37,9 +9,13 @@
       "ios"
     ]
   },
-  "deprecated": false,
-  "description": "Get and play the native ringtone list on Android/IOS devices.",
-  "homepage": "https://github.com/TongZhangzt/cordova-plugin-native-ringtones#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TongZhangzt/cordova-plugin-native-ringtones.git"
+  },
+  "dependencies": {
+    "cordova-plugin-media": "*"
+  },
   "keywords": [
     "cordova",
     "system sound",
@@ -49,11 +25,10 @@
     "cordova-android",
     "cordova-ios"
   ],
+  "author": "Tong Zhang",
   "license": "Apache 2.0",
-  "name": "cordova-plugin-native-ringtones",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/TongZhangzt/cordova-plugin-native-ringtones.git"
+  "bugs": {
+    "url": "https://github.com/TongZhangzt/cordova-plugin-native-ringtones/issues"
   },
-  "version": "1.0.0"
+  "homepage": "https://github.com/TongZhangzt/cordova-plugin-native-ringtones#readme"
 }
