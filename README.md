@@ -52,10 +52,11 @@ You can get the defaultRingtone by calling the function getDefaultRingtone as fo
 
 ```js
 document.addEventListener('deviceready', function () {
-        cordova.plugins.NativeRingtones.getDefaultRingtone(function(current) {
+        cordova.plugins.NativeRingtones.getDefaultRingtone(
+        function(current) {
                 console.log('Current ringtone is ' + current);
             },
-        cordova.plugins.NativeRingtones.getDefaultRingtone(function(current) {
+        function(error) {
                 console.log('Not found any ringtone!');
             }
 }, false);
