@@ -9,19 +9,11 @@ The plugin helps get the native ringtones list on Android or IOS devices. And yo
 - __Android__ 
 
 ## Installation
-The plugin can be installed via Cordova-CLI and is publicly available on [NPM](https://www.npmjs.com/package/cordova-plugin-native-ringtones).
+The plugin can be installed via Cordova-CLI
 
-Execute from the projects root folder:
+Install the latest head version:
 
-    $ cordova plugin add cordova-plugin-native-ringtones
-
-Or install a specific version:
-
-    $ cordova plugin add cordova-plugin-native-ringtones@VERSION
-
-Or install the latest head version:
-
-    $ cordova plugin add https://github.com/TongZhangzt/cordova-plugin-native-ringtones
+    $ cordova plugin add https://github.com/Zeno97/cordova-plugin-native-ringtones
 
 ## Usage
 The plugin creates the object `cordova.plugins.NativeRingtones` and is accessible after the *deviceready* event has been fired.
@@ -51,6 +43,33 @@ You can call the function playRingtone or stopRingtone to play or stop a rington
 document.addEventListener('deviceready', function () {
         var ringtones;
         cordova.plugins.NativeRingtones.playRingtone("/System/Library/Audio/UISounds/Modern/calendar_alert_chord.caf");
+}, false);
+```
+
+## Fork features
+
+You can get the defaultRingtone by calling the function getDefaultRingtone as follows. In the callback you'll have the URI path of the current one by the `success` object.
+
+```js
+document.addEventListener('deviceready', function () {
+        cordova.plugins.NativeRingtones.getDefaultRingtone(
+        function(current) {
+                console.log('Current ringtone is ' + current);
+            },
+        function(error) {
+                console.log('Not found any ringtone!');
+            }
+}, false);
+```
+
+You can check if actually is playing a ringtone by calling the function isRingtonePlaying as follows. In the callback you'll have a boolean value by the `isPlaying` value.
+
+```js
+document.addEventListener('deviceready', function () {
+        cordova.plugins.NativeRingtones.isRingtonePlaying(function(isPlaying) {
+                if(isPlaying == true) console.log('Yeah, is playing!');
+                else console.log('Oh shit, is not playing!');
+            }
 }, false);
 ```
 
