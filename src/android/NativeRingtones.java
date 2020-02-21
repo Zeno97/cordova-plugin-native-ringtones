@@ -50,7 +50,7 @@ public class NativeRingtones extends CordovaPlugin {
     }
 
   private boolean get(String ringtoneType, final CallbackContext callbackContext){
-      cordova.getThreadPool().execute(() -> {
+      //cordova.getThreadPool().execute(() -> {
               RingtoneManager manager = new RingtoneManager(cordova.getActivity().getBaseContext());
 
               //The default value if ringtone type is "notification"
@@ -100,14 +100,14 @@ public class NativeRingtones extends CordovaPlugin {
               } else {
                   callbackContext.error("Can't get system Ringtone list");
               }
-      });
+      //});
 
 
         return true;
     }
 
     private boolean play(String ringtoneUri, final CallbackContext callbackContext){
-        cordova.getThreadPool().execute(() -> {
+        //cordova.getThreadPool().execute(() -> {
             try {
                 if (ringtone != null && ringtone.isPlaying()) {
                     callbackContext.error("Already playing a ringtone!");
@@ -130,13 +130,13 @@ public class NativeRingtones extends CordovaPlugin {
                 callbackContext.error("Can't play the ringtone!");
             }
             callbackContext.success("Play the ringtone successfully!");
-        });
+        //});
 
         return true;
     }
 
     private boolean stop(final CallbackContext callbackContext){
-        cordova.getThreadPool().execute(() -> {
+        //cordova.getThreadPool().execute(() -> {
             if(ringtone != null) {
                     mTimer.cancel();  // Terminates this timer, discarding any currently scheduled tasks.
                     mTimer.purge();   // Removes all cancelled tasks from this timer's task queue.
@@ -146,12 +146,12 @@ public class NativeRingtones extends CordovaPlugin {
             } else {
                 callbackContext.error("Any ringtone found!");
             }
-        });
+        //});
 
         return true;
     }
     private boolean getDefaultRingtone(final CallbackContext callbackContext){
-        cordova.getThreadPool().execute(() -> {
+        //cordova.getThreadPool().execute(() -> {
             String path = Settings.System.DEFAULT_RINGTONE_URI.toString();
 
             if(!path.isEmpty()){
@@ -160,14 +160,14 @@ public class NativeRingtones extends CordovaPlugin {
             else{
                 callbackContext.error("Not found any default ringtone");
             }
-        });
+        //});
 
         return true;
     }
 
     private boolean isRingtonePlaying(final CallbackContext callbackContext){
 
-        cordova.getThreadPool().execute(() -> {
+        //cordova.getThreadPool().execute(() -> {
             if(ringtone != null) {
                 if (ringtone.isPlaying()) {
                     callbackContext.success(1);
@@ -177,7 +177,7 @@ public class NativeRingtones extends CordovaPlugin {
             } else {
                 callbackContext.success(0);
             }
-        });
+        //});
 
         return true;
     }
