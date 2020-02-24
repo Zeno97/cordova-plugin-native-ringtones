@@ -1,4 +1,4 @@
-# cordova-plugin-native-ringtones [![npm version](https://badge.fury.io/js/cordova-plugin-native-ringtones.svg)](https://badge.fury.io/js/cordova-plugin-native-ringtones)
+# Forked from: cordova-plugin-native-ringtones [![npm version](https://badge.fury.io/js/cordova-plugin-native-ringtones.svg)](https://badge.fury.io/js/cordova-plugin-native-ringtones)
 
 Plugin for the [Cordova](https://cordova.apache.org) framework to get the native ringtone list.
 
